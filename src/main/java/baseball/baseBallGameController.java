@@ -24,12 +24,9 @@ public class baseBallGameController {
                 }
             }
             System.out.println(randomList);
-            boolean isTrue = true;
 
             while (true) {
-
                 int userNumber = view.userNumberScan();
-
                 List<Integer> userList = new ArrayList<>();
                 int hundred = userNumber / 100;
                 int ten = (userNumber/10)%10;
@@ -37,10 +34,7 @@ public class baseBallGameController {
                 userList.add(hundred);
                 userList.add(ten);
                 userList.add(one);
-                if (hundred>9) {
-                    isTrue = false;
-                    break;
-                }
+
                 List<Integer> strikeBall = model.strikeAndBall(userList, randomList);
                 int strike = strikeBall.get(0);
                 int ball = strikeBall.get(1);
@@ -54,13 +48,9 @@ public class baseBallGameController {
                     break;
                 }
             }
-            if (!isTrue) {
-                boolean resetGame = view.questionGameOver();
-                if (!resetGame) {
-                    break;
-                }
-            } else {
-                throw new IllegalArgumentException("게임을 종료합니다.");
+            boolean resetGame = view.questionGameOver();
+            if (!resetGame) {
+                break;
             }
         }
     }
