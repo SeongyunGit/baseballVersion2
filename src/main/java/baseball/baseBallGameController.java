@@ -17,12 +17,7 @@ public class baseBallGameController {
     public void gameStart() {
         while (true) {
             List<Integer> randomList = new ArrayList<>();
-            while (randomList.size() < 3) {
-                int randomNumber = Randoms.pickNumberInRange(1, 9);
-                if (!randomList.contains(randomNumber)) {
-                    randomList.add(randomNumber);
-                }
-            }
+            randomList = model.randomNumberList(randomList);
             System.out.println(randomList);
 
             while (true) {

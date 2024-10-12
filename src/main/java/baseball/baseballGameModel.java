@@ -1,8 +1,10 @@
 package baseball;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
 
 public class baseballGameModel {
 
@@ -33,5 +35,14 @@ public class baseballGameModel {
             }
         }
         return ball;
+    }
+    public List<Integer> randomNumberList(List<Integer> randomList) {
+        while (randomList.size() < 3) {
+            int randomNumber = Randoms.pickNumberInRange(1, 9);
+            if (!randomList.contains(randomNumber)) {
+                randomList.add(randomNumber);
+            }
+        }
+        return randomList;
     }
 }
